@@ -4,16 +4,11 @@ namespace PlayerSpace
 {
     public class Player : MonoBehaviour
     {
-                
         [SerializeField] private float _speed;
         [SerializeField] private float _tilt;
         [SerializeField] PlayerBoundary _boundary;
-
         private Rigidbody _rigidbody;
-        
-        public static Player SimgltonPlayer;
         private PlayerController _playerController;
-        private void Awake() => SimgltonPlayer = this;
 
         private void Start()
         {

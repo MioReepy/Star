@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +16,7 @@ namespace PlayerSpace
         private void Start()
         {
             _pooledBolt = new List<GameObject>();
+            _timer = _spawnInterval;
 
             for (int bolt = 0; bolt < _initialPoolSize; bolt++)
             {

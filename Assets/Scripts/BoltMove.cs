@@ -1,5 +1,3 @@
-using System;
-using AsteroidSpace;
 using UnityEngine;
 
 namespace PlayerSpace
@@ -23,7 +21,7 @@ namespace PlayerSpace
         {
             if (other.gameObject.tag == "Asteroid")
             {
-                Destroy(other.gameObject);
+                AsteroidGenerator.ReturnAsteroidToPool(other.gameObject);
                 Pool.ReturnBoltToPool(gameObject);
             }
         }
