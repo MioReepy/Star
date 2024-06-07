@@ -1,3 +1,5 @@
+using System;
+using AsteroidSpace;
 using UnityEngine;
 
 namespace PlayerSpace
@@ -5,10 +7,33 @@ namespace PlayerSpace
     public class BoltMove : MonoBehaviour
     {
         [SerializeField] private float _speed;
+        private Rigidbody _rigidbody;
 
         private void Start()
         {
-            GetComponent<Rigidbody>().velocity = transform.forward * _speed;
+            _rigidbody = GetComponent<Rigidbody>();
+        }
+
+        private void FixedUpdate()
+        {
+            _rigidbody.velocity = transform.forward * _speed;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.tag == "Asteroid")
+            {
+                Destroy(other.gameObject);
+                Pool.ReturnBoltToPool(gameObject);
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.tag == "Boundary")
+            {
+                Pool.ReturnBoltToPool(gameObject);
+            }
         }
     }
 }

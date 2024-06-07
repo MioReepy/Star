@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace AsteroidSpace
 {
@@ -11,6 +13,14 @@ namespace AsteroidSpace
         {
             _tumble = (int)Random.Range(_tumbleMin, _tumbleMax);
             GetComponent<Rigidbody>().angularVelocity = Random.insideUnitSphere * _tumble;
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }

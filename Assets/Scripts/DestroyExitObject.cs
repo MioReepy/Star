@@ -7,7 +7,10 @@ namespace AsteroidSpace
     {
         private void OnTriggerExit(Collider other)
         {
-            Destroy(other.gameObject);
+            if (other.gameObject.tag == "Asteroid")
+            {
+                Destroy(other.gameObject);
+            }
         }
     }
 }
