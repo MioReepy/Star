@@ -1,6 +1,6 @@
 using System;
 
-namespace PlayerSpace
+namespace BoundarySpace
 {
     [Serializable]
     public class PlayerBoundary

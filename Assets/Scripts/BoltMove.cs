@@ -21,7 +21,7 @@ namespace PlayerSpace
         {
             if (other.gameObject.tag == "Asteroid")
             {
-                AsteroidGenerator.ReturnAsteroidToPool(other.gameObject);
+                Generator.ReturnAsteroidOrEnemyToPool(other.gameObject);
                 Pool.ReturnBoltToPool(gameObject);
             }
         }

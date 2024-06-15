@@ -1,14 +1,14 @@
 using UnityEngine;
 
-namespace AsteroidSpace
+namespace GeneratorSpace
 {
     public class DestroyExitObject : MonoBehaviour
     {
         private void OnTriggerExit(Collider other)
         {
-            if (other.gameObject.tag == "Asteroid")
+            if (other.gameObject.tag == "Asteroid" || other.gameObject.tag == "Enemy")
             {
-                AsteroidGenerator.ReturnAsteroidToPool(other.gameObject);
+                Generator.ReturnAsteroidOrEnemyToPool(other.gameObject);
             }
         }
     }

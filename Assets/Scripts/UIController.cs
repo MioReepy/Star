@@ -8,7 +8,7 @@ namespace UISystem
         [SerializeField] private GameObject _gameOverWindow;
         private void OnEnable()
         {
-            AsteroidCollider.OnKill += OnOpenGameOverWindow;
+            DestroyByContact.OnKill += OnOpenGameOverWindow;
         }
 
         private void OnOpenGameOverWindow()
@@ -19,7 +19,7 @@ namespace UISystem
 
         private void OnDisable()
         {
-            AsteroidCollider.OnKill -= OnOpenGameOverWindow;
+            DestroyByContact.OnKill -= OnOpenGameOverWindow;
         }
     }
 }
