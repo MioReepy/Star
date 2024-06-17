@@ -1,4 +1,5 @@
 using UnityEngine;
+using WeaponSpace;
 
 namespace PlayerSpace
 {
@@ -17,7 +18,7 @@ namespace PlayerSpace
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Pool._isPoof = true;
+                Bolt._isPoof = true;
             }
         }
     }

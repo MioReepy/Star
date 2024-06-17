@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4577170687308024929}
   - component: {fileID: 814140586047155083}
   - component: {fileID: 4072293018400768985}
-  m_Layer: 0
+  - component: {fileID: 4194496550337370283}
+  m_Layer: 7
   m_Name: playerBolt
-  m_TagString: Untagged
+  m_TagString: PlayerBolt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,6 +99,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10
+--- !u!114 &4194496550337370283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2571389763657955203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9461cddc873e74d94b7269902fb293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+  _playerExplotion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 3}
+  _workTimer: 1
 --- !u!1 &8643763105032626233
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,9 +125,9 @@ GameObject:
   - component: {fileID: 8302736409400848755}
   - component: {fileID: 1993513146532381633}
   - component: {fileID: 3483397206412475805}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: PlayerBolt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

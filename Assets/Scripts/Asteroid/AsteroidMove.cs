@@ -11,7 +11,7 @@ namespace AsteroidSpace
         private void Start()
         {
             _speed = (int)Random.Range(_speedMin, _speedMax);
-            GetComponent<Rigidbody>().velocity = transform.forward * -_speed;
+            GetComponent<Rigidbody>().velocity = transform.forward * _speed;
         }
     }
 }

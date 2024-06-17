@@ -1,32 +1,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PlayerSpace
+namespace WeaponSpace
 {
-    public class Pool : MonoBehaviour
+    public class Bolt : MonoBehaviour
     {
-        [SerializeField] private GameObject _bolt;
-        [SerializeField] private GameObject _barrel;
-        [SerializeField] private int _initialPoolSize;
+        [SerializeField] internal GameObject _shot;
+        [SerializeField] internal Transform _shotSpawn;
         [SerializeField] private float _spawnInterval;
+        [SerializeField] protected int _initialPoolSize;
+        
         private List<GameObject> _pooledBolt;
-        private float _timer;
+        private float _timer = 0;
         internal static bool _isPoof;
 
-        private void Start()
+        private void Awake()
         {
             _pooledBolt = new List<GameObject>();
-            _timer = _spawnInterval;
-
+        }
+        
+        private void Start()
+        {
             for (int bolt = 0; bolt < _initialPoolSize; bolt++)
             {
-                GameObject newBolt = Instantiate(_bolt);
+                GameObject newBolt = Instantiate(_shot);
                 newBolt.SetActive(false);
                 _pooledBolt.Add(newBolt);
             }
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             _timer += Time.deltaTime;
 
@@ -46,26 +49,26 @@ namespace PlayerSpace
                     return bolt;
                 }
             }
-            GameObject newBolt = Instantiate(_bolt);
+            GameObject newBolt = Instantiate(_shot);
             newBolt.SetActive(false);
             _pooledBolt.Add(newBolt);
             return newBolt;
         }
 
-        private void SpawnBolt()
+        internal void SpawnBolt()
         {
             GameObject bolt = GetPoolBolt();
 
             if (bolt != null)
             {
-                _isPoof = false;
-                bolt.transform.position = _barrel.transform.position;
-                bolt.transform.rotation = _barrel.transform.rotation;
+                bolt.transform.position = _shotSpawn.position;
+                bolt.transform.rotation = _shotSpawn.rotation;
                 bolt.SetActive(true);
+                _isPoof = false;
             }
         }
 
-        internal static void ReturnBoltToPool(GameObject bolt)
+        protected internal static void ReturnBoltToPool(GameObject bolt)
         {
             bolt.SetActive(false);
         }

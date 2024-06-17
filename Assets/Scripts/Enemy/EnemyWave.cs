@@ -1,14 +1,12 @@
-using System;
 using System.Collections;
 using UnityEngine;
-using BoundarySpace;
+using InviromentSpace;
 using Random = UnityEngine.Random;
 
 public class EnemyWave : MonoBehaviour
 {
     [SerializeField] private AsteroidBoundary _boundary;
     [SerializeField] private float _tilt;
-
     [SerializeField] private float _dodge;
     [SerializeField] private float _smoothing;
     [SerializeField] private Vector2 _starWait;
@@ -23,7 +21,7 @@ public class EnemyWave : MonoBehaviour
     private void Start()
     {
         _smoothing = (int)Random.Range(_speedMin, _speedMax);
-        GetComponent<Rigidbody>().velocity = transform.forward * -_smoothing;
+        GetComponent<Rigidbody>().velocity = transform.forward * _smoothing;
         _currentSpeed = GetComponent<Rigidbody>().velocity.z;
         StartCoroutine(Evade());
     }
@@ -50,7 +48,7 @@ public class EnemyWave : MonoBehaviour
         (
             Mathf.Clamp(GetComponent<Rigidbody>().position.x, _boundary._xMin, _boundary._xMax),
             0f,
-            gameObject.transform.position.z
+            GetComponent<Rigidbody>().position.z
         );
         GetComponent<Rigidbody>().rotation = Quaternion.Euler(0f, 180f, GetComponent<Rigidbody>().velocity.x * -_tilt);
     }

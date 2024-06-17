@@ -1,5 +1,6 @@
+using System;
 using UnityEngine;
-using BoundarySpace;
+using InviromentSpace;
 
 namespace PlayerSpace
 {
@@ -8,8 +9,13 @@ namespace PlayerSpace
         [SerializeField] private float _speed;
         [SerializeField] private float _tilt;
         [SerializeField] PlayerBoundary _boundary;
+        
         private Rigidbody _rigidbody;
         private PlayerController _playerController;
+
+        static public Player SingletonPlayer;
+
+        private void Awake() => SingletonPlayer = this;
 
         private void Start()
         {

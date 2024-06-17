@@ -22,12 +22,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2571389763657955203, guid: 174606ced004eb047b0b46d2b53ac12a, type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: EnemyBolt
       objectReference: {fileID: 0}
     - target: {fileID: 3483397206412475805, guid: 174606ced004eb047b0b46d2b53ac12a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 26f42cda56730db48bdfeee4f3bdedc8, type: 2}
+    - target: {fileID: 4072293018400768985, guid: 174606ced004eb047b0b46d2b53ac12a, type: 3}
+      propertyPath: _speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4577170687308024929, guid: 174606ced004eb047b0b46d2b53ac12a, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -86,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8643763105032626233, guid: 174606ced004eb047b0b46d2b53ac12a, type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: EnemyBolt
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
-using BoundarySpace;
 
-public class Generator : MonoBehaviour
+namespace InviromentSpace
 {
+    public class Generator : MonoBehaviour
+    {
         [SerializeField] private GameObject[] _asteroidsOrEnemy;
         [SerializeField] private GameObject _spawnPlace;
         [SerializeField] private int _initialPoolSize;
@@ -21,7 +22,7 @@ public class Generator : MonoBehaviour
             for (int asteroidOrEnemy = 0; asteroidOrEnemy < _initialPoolSize; asteroidOrEnemy++)
             {
                 GameObject newAsteroidOrEnemy;
-                
+
                 if (_enemySpawnRate != 0 && _enemySpawnRate != null && asteroidOrEnemy % _enemySpawnRate == 0)
                 {
                     newAsteroidOrEnemy = Instantiate(_asteroidsOrEnemy[_asteroidsOrEnemy.Length - 1]);
@@ -56,10 +57,11 @@ public class Generator : MonoBehaviour
                     return asteroidOrEnemy;
                 }
             }
-            GameObject newBolt = Instantiate(_asteroidsOrEnemy[Random.Range(0, _asteroidsOrEnemy.Length)]);
-            newBolt.SetActive(false);
-            _pooledBolt.Add(newBolt);
-            return newBolt;
+
+            GameObject newAsteroidOrEnemy = Instantiate(_asteroidsOrEnemy[Random.Range(0, _asteroidsOrEnemy.Length)]);
+            newAsteroidOrEnemy.SetActive(false);
+            _pooledBolt.Add(newAsteroidOrEnemy);
+            return newAsteroidOrEnemy;
         }
 
         private void SpawnAsteroidOrEnemy()
@@ -79,4 +81,5 @@ public class Generator : MonoBehaviour
         {
             bolt.SetActive(false);
         }
+    }
 }
