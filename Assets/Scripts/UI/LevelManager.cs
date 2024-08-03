@@ -48,9 +48,6 @@ namespace UISystem
                 _wave++;
                 OnLevelComplete?.Invoke(_wave);
             }
-            
-            Debug.Log(_levelTimer);
-            Debug.Log(_tempLevelTimer);
         }
 
         private void OnIsDead()
