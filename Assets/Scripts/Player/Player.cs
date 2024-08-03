@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
 using InviromentSpace;
+using WeaponSpace;
 
 namespace PlayerSpace
 {
@@ -11,23 +11,19 @@ namespace PlayerSpace
         [SerializeField] PlayerBoundary _boundary;
         
         private Rigidbody _rigidbody;
-        private PlayerController _playerController;
 
         static public Player SingletonPlayer;
-
+        
         private void Awake() => SingletonPlayer = this;
 
         private void Start()
         {
-            _playerController = GetComponent<PlayerController>();
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        private void FixedUpdate()
+        internal void Move(Vector2 input)
         {
-            Vector3 movement = new Vector3(_playerController.moveHorizontal, 0f, _playerController.moveVertical);
-
-            _rigidbody.velocity = movement * _speed;
+            _rigidbody.velocity = new Vector3(input.x, 0f, input.y) * _speed;
             _rigidbody.rotation = Quaternion.Euler(0f, 0f, _rigidbody.velocity.x * -_tilt);
             _rigidbody.position = new Vector3
             (
@@ -35,6 +31,11 @@ namespace PlayerSpace
                 0f,
                 Mathf.Clamp(_rigidbody.position.z, _boundary._zMin, _boundary._zMax)
             );
+        }
+
+        public void Shoot()
+        {
+            Bolt._isPoof = true;
         }
     }
 }
